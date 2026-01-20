@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <link rel="icon" type="image/png" href="img/tabicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=Lustria&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="gallery.css">
+</head>
+<body>
+    <div id="transitionOverlay" class="smooth-fade"></div>
+
+    <header class="header">
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="img/logo-removebg-preview.png" alt="Logo" class="main-logo">
+            </a>
+        </div>
+        <div class="header-right">
+            <button class="menu-btn" id="menuBtn">☰</button>
+        </div>
+    </header>
+
+    <section class="gallery-hero">
+        <div class="hero-content">
+            <span class="sub-title">WELCOME TO THE</span>
+            <h1>Spirit Realm</h1>
+            <p>Scroll down to reveal the visual archives</p>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <main class="gallery-container">
+        
+        <div class="gallery-banner">
+            <img src="img/dragon.gif" alt="Featured Masterpiece">
+            <div class="banner-overlay">
+                <span class="sub-title">FEATURED ARTWORK</span>
+                <h2>Journey through a world beyond.</h2>
+            </div>
+        </div>
+
+        <div class="gallery-grid">
+            <div class="gallery-item tall"><img src="img/castle.jpg" alt="Art 1"></div> 
+            <div class="gallery-item wide"><img src="img/34554-3250x1757-desktop-hd-spirited-away-wallpaper-image.jpg" alt="Art 2"></div>
+            <div class="gallery-item"><img src="img/noface.jpg" alt="Art 3"></div>
+            <div class="gallery-item tall"><img src="img/faceless.jpg" alt="Art 4"></div>
+            <div class="gallery-item"><img src="img/yubaba.jpg" alt="Art 5"></div>
+            <div class="gallery-item wide"><img src="img/chihirohaku.gif" alt="Art 6"></div>
+            <div class="gallery-item"><img src="img/others.jpg" alt="Art 7"></div>
+        </div>
+    </main>
+
+    <div class="side-menu" id="sideMenu">
+        <div class="close-btn" id="closeBtn">×</div>
+        <nav class="menu-links">
+            <a href="index.html">HOME</a>
+            <a href="about.html">ABOUT</a>
+            <a href="folklore.html">FOLKLORE ORIGIN</a>
+            <a href="character.html">CHARACTER</a>
+            <a href="guidebook.html">GUIDEBOOK</a>
+        </nav>
+    </div>
+    <div class="overlay" id="overlay"></div>
+
+    <footer class="footer">
+        <p>"Once you've met someone, you never really forget them."</p>
+        <p style="font-size: 10px; margin-top: 10px; opacity: 0.5;">© Spirited Away. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        const menuBtn = document.getElementById("menuBtn");
+        const sideMenu = document.getElementById("sideMenu");
+        const closeBtn = document.getElementById("closeBtn");
+        const overlay = document.getElementById("overlay");
+
+        menuBtn.onclick = () => { sideMenu.classList.add("open"); overlay.classList.add("show"); };
+        const closeMenu = () => { sideMenu.classList.remove("open"); overlay.classList.remove("show"); };
+        closeBtn.onclick = closeMenu;
+        overlay.onclick = closeMenu;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.body.classList.add('page-loaded');
+            document.addEventListener('click', (e) => {
+                const link = e.target.closest('a');
+                if (!link || !link.href || link.target === '_blank' || link.href.includes('#') || !link.href.startsWith(window.location.origin)) return;
+                e.preventDefault();
+                document.body.classList.remove('page-loaded');
+                document.body.classList.add('page-exiting');
+                setTimeout(() => { window.location.href = link.href; }, 800);
+            });
+        });
+    </script>
+</body>
+</html>

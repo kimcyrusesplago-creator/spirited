@@ -1,0 +1,241 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #050505;
+    color: #ffffff;
+    font-family: 'Lustria', serif;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+.main-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100px;
+    padding: 0 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, transparent 100%);
+    z-index: 1000;
+}
+
+.main-logo {
+    height: 50px;
+    filter: brightness(1.2);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.main-logo:hover {
+    transform: scale(1.05);
+}
+
+.menu-btn {
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: #E2C275;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.menu-btn:hover {
+    transform: scale(1.1);
+}
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 350px;
+  height: 100%;
+  background: #000;
+  z-index: 1001;
+  padding: 80px 40px;
+  transition: 0.5s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.side-menu.open {
+  right: 0;
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  color: #A7373F;
+  cursor: pointer;
+}
+
+.menu-links a {
+  font-family: 'Lustria', serif;
+  display: block;
+  font-size: 24px;
+  color: #E2C275;
+  text-decoration: none;
+  margin-bottom: 30px;
+  transition: 0.3s;
+}
+
+.menu-links a:hover {
+  color: #A7373F;
+  padding-left: 10px;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1000;
+  transition: 0.4s;
+}
+
+.overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.guide-hero {
+    height: 100vh;
+    background: #050505;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.category {
+    color: #E2C275;
+    font-size: 14px;
+    letter-spacing: 5px;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.hero-text h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 8vw, 6rem);
+    color: #E2C275;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 12px;
+    line-height: 1.2;
+}
+
+.hero-text::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 1px;
+    background: #E2C275;
+    margin: 30px auto 0;
+}
+
+.guide-content {
+    padding: 100px 20px;
+    background-color: #050505;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.guide-item {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    margin-bottom: 150px;
+}
+
+.guide-item.reverse {
+    flex-direction: row-reverse;
+}
+
+.chapter {
+    color: #E2C275;
+    font-size: 13px;
+    letter-spacing: 4px;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.guide-info h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem;
+    margin-bottom: 25px;
+    color: #ffffff;
+    font-weight: 400;
+}
+
+.guide-info p {
+    color: #999;
+    line-height: 1.8;
+    font-size: 17px;
+}
+
+.glow-box {
+    width: 280px;
+    height: 380px;
+    border: 1px solid rgba(226, 194, 117, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+    color: #E2C275;
+    background: rgba(226, 194, 117, 0.02);
+    transition: 0.6s ease;
+}
+
+.guide-item:hover .glow-box {
+    border-color: #E2C275;
+    box-shadow: 0 0 40px rgba(226, 194, 117, 0.1);
+    transform: translateY(-10px);
+}
+
+.footer {
+    padding: 60px 20px;
+    text-align: center;
+    border-top: 1px solid rgba(226, 194, 117, 0.1);
+    color: #999;
+}
+
+.smooth-fade {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    z-index: 99999;
+    pointer-events: none;
+    opacity: 1;
+    visibility: visible;
+    will-change: opacity;
+    transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), 
+                visibility 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.page-loaded .smooth-fade {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.page-exiting .smooth-fade {
+    opacity: 1;
+    visibility: visible;
+}

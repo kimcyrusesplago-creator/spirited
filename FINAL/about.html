@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About</title>
+  <link rel="icon" type="image/png" href="img/tabicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=Lustria&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css"> <link rel="stylesheet" href="about.css"> </head>
+<body>
+  <div id="transitionOverlay" class="smooth-fade"></div>
+  <header class="header">
+    <div class="logo-container">
+      <a href="index.html">
+        <img src="img/logo-removebg-preview.png" alt="Logo" class="main-logo">
+      </a>
+    </div>
+    <div class="header-right">
+      <button class="menu-btn" id="menuBtn">☰</button>
+    </div>
+  </header>
+
+  <section class="about-hero">
+    <div class="about-title">
+      <span class="sub-title">THE LEGACY</span>
+      <h1>About the Masterpiece</h1>
+      <div class="divider"></div>
+    </div>
+  </section>
+
+  <section class="creator-section">
+    <div class="creator-container">
+      <div class="creator-image">
+        <img src="img/about.jpg" alt="Hayao Miyazaki">
+      </div>
+      <div class="creator-info">
+        <h2>The Visionary: Hayao Miyazaki</h2>
+        <p>A co-founder of Studio Ghibli, Miyazaki is a master storyteller and animator. His films often explore the relationship between humanity, nature, and technology, woven with magical realism and deep emotional resonance.</p>
+        <p>Spirited Away (2001) remains his most celebrated work, inspired by the children of his friends and the traditional Japanese bathhouse culture.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="achievements">
+    <div class="section-header">
+      <h2>Global Achievements</h2>
+    </div>
+    <div class="achievement-grid">
+      
+      <div class="achieve-card">
+        <div class="icon">🏆</div>
+        <h3><a href="https://www.oscars.org/oscars/ceremonies/2003" target="_blank" class="achieve-link">Academy Award</a></h3>
+        <p>Best Animated Feature (75th Academy Awards)</p>
+      </div>
+
+      <div class="achieve-card">
+        <div class="icon">🐻</div>
+        <h3><a href="https://www.berlinale.de/en/archive/jahresarchive/2002/02_programm_2002/02_programm_2002.html" target="_blank" class="achieve-link">Golden Bear</a></h3>
+        <p>Berlin International Film Festival Winner</p>
+      </div>
+
+      <div class="achieve-card">
+        <div class="icon">📈</div>
+        <h3><a href="https://www.boxofficemojo.com/title/tt0245429/" target="_blank" class="achieve-link">Box Office Record</a></h3>
+        <p>Highest-grossing film in Japanese history for 19 years</p>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="side-menu" id="sideMenu">
+    <div class="close-btn" id="closeBtn">×</div>
+    <nav class="menu-links">
+      <a href="index.html">HOME</a>
+    <a href="gallery.html">GALLERY</a>
+    <a href="folklore.html">FOLKLORE ORIGIN</a>
+    <a href="character.html">CHARACTER</a>
+    <a href="guidebook.html">SPIRIT WORLD GUIDEBOOK</a>
+    </nav>
+  </div>
+  <div class="overlay" id="overlay"></div>
+
+  <footer class="footer">
+        <p>"Once you've met someone, you never really forget them."</p>
+        <p style="font-size: 10px; margin-top: 10px; opacity: 0.5;">© Spirited Away. All Rights Reserved.</p>
+    </footer>
+
+  <script>
+    const menuBtn = document.getElementById("menuBtn");
+    const sideMenu = document.getElementById("sideMenu");
+    const closeBtn = document.getElementById("closeBtn");
+    const overlay = document.getElementById("overlay");
+
+    menuBtn.onclick = () => {
+      sideMenu.classList.add("open");
+      overlay.classList.add("show");
+    };
+    function closeMenu() {
+      sideMenu.classList.remove("open");
+      overlay.classList.remove("show");
+    }
+    closeBtn.onclick = closeMenu;
+    overlay.onclick = closeMenu;
+
+    document.addEventListener('DOMContentLoaded', () => {
+    document.body.classList.add('page-loaded');
+
+    document.addEventListener('click', (e) => {
+        const link = e.target.closest('a');
+
+        if (!link || !link.href || link.target === '_blank' || 
+            link.href.includes('#') || !link.href.startsWith(window.location.origin)) {
+            return;
+        }
+
+        e.preventDefault();
+        const targetUrl = link.href;
+
+        document.body.classList.remove('page-loaded');
+        document.body.classList.add('page-exiting');
+
+        setTimeout(() => {
+            window.location.href = targetUrl;
+        }, 800);
+    });
+});
+  </script>
+
+<script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,154 @@
+.about-hero {
+    height: 60vh;
+    background: linear-gradient(rgba(0,0,0,0.6), #000), url('img/about-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 100px;
+}
+
+.about-title h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(35px, 6vw, 60px);
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+}
+
+.divider {
+    width: 80px;
+    height: 1px;
+    background: #E2C275;
+    margin: 20px auto;
+}
+
+.creator-section {
+    padding: 100px 10%;
+    background-color: #000;
+}
+
+.creator-container {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+.creator-image {
+    flex: 1;
+    min-width: 300px;
+}
+
+.creator-image img {
+    width: 100%;
+    border-radius: 5px;
+    filter: sepia(30%) contrast(1.1);
+    border: 1px solid rgba(226, 194, 117, 0.3);
+}
+
+.creator-info {
+    flex: 1;
+    min-width: 300px;
+}
+
+.creator-info h2 {
+    color: #E2C275;
+    font-size: 32px;
+    margin-bottom: 20px;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.creator-info p {
+    color: #d1d1d1;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    font-size: 17px;
+}
+
+.achievements {
+    padding: 100px 10%;
+    background-color: #0a0a0a;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-header h2 {
+    font-size: 35px;
+    color: #fff;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.achievement-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.achieve-card {
+    background: rgba(255,255,255,0.03);
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid rgba(226, 194, 117, 0.1);
+    transition: 0.3s;
+}
+
+.achieve-card:hover {
+    transform: translateY(-10px);
+    border-color: #E2C275;
+    background: rgba(226, 194, 117, 0.05);
+}
+
+.achieve-card .icon {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.achieve-card h3 {
+    color: #E2C275;
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+.achieve-card p {
+    color: #999;
+    font-size: 15px;
+}
+
+.footer {
+    padding: 60px 20px;
+    text-align: center;
+    border-top: 1px solid rgba(226, 194, 117, 0.1);
+    color: #999;
+}
+.smooth-fade {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    z-index: 99999;
+    pointer-events: none;
+    opacity: 1;
+    visibility: visible;
+    will-change: opacity;
+    transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), 
+                visibility 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.page-loaded .smooth-fade {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.page-exiting .smooth-fade {
+    opacity: 1;
+    visibility: visible;
+}

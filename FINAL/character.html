@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Character</title>
+  <link rel="icon" type="image/png" href="img/tabicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;600&family=Lustria&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="character.css">
+</head>
+<body>
+<div id="transitionOverlay" class="smooth-fade"></div>
+  <header class="header">
+    <div class="logo-container">
+      <a href="index.html"><img src="img/logo-removebg-preview.png" alt="Logo" class="main-logo"></a>
+    </div>
+    <div class="header-right">
+      <button class="menu-btn" id="menuBtn">☰</button>
+    </div>
+  </header>
+  <div class="split-layout">
+    <div class="split-left">
+      <div class="image-frame">
+        <img src="img/chihiro.jpg" id="main-visual" alt="Folklore">
+      </div>
+    </div>
+
+    <div class="split-right">
+      <section class="content-section" data-img="img/chihiro.jpg">
+        <span class="tag">I</span>
+        <h1>Chihiro Ogino</h1>
+        <p>Young girl who enters the spirit world and slowly learns courage, kindness, and responsibility. Through her journey, she grows from a frightened child into someone strong enough to protect others and herself.</p>
+      </section>
+
+      <section class="content-section" data-img="img/haku.jpg">
+        <span class="tag">II</span>
+        <h2>"Haku" Nigihayami Kohakunushi</h2>
+        <p>Mysterious boy who is actually a river spirit. He guides Chihiro in the spirit world, showing both kindness and strength while struggling to remember his true identity.</p>
+      </section>
+
+
+      <section class="content-section" data-img="img/face.jpg">
+        <span class="tag">III</span>
+        <h2>No-Face</h2>
+        <p>Lonely spirit who reflects the emotions and desires of those around him. He becomes dangerous when consumed by greed, but gentle and calm when shown kindness.</p>
+      </section>
+
+<section class="content-section" data-img="img/yubabs.jpg">
+        <span class="tag">IV</span>
+        <h2>Yubaba</h2>
+        <p>Powerful witch who rules the bathhouse in the spirit world. She is strict and intimidating, but values hard work and keeps order through magic and control.</p>
+      </section>
+
+      <section class="content-section" data-img="img/Kamaji.jpg">
+        <span class="tag">V</span>
+        <h2>Kamaji</h2>
+        <p>Multi-armed spirit who operates the bathhouse’s boiler room. Though he appears intimidating at first, he is one of Chihiro's most loyal allies.</p>
+      </section>
+
+    </div>
+  </div>
+  <div class="side-menu" id="sideMenu">
+    <div class="close-btn" id="closeBtn">×</div>
+    <nav class="menu-links">
+      <a href="index.html">HOME</a>
+      <a href="about.html">ABOUT</a>
+    <a href="gallery.html">GALLERY</a>
+    <a href="folklore.html">FOLKLORE ORIGIN</a>
+    <a href="guidebook.html">SPIRIT WORLD GUIDEBOOK</a>
+    </nav>
+  </div>
+  <div class="overlay" id="overlay"></div>
+
+  <script>
+    
+    const menuBtn = document.getElementById('menuBtn');
+    const sideMenu = document.getElementById('sideMenu');
+    const closeBtn = document.getElementById('closeBtn');
+    const overlay = document.getElementById('overlay');
+
+    menuBtn.onclick = () => {
+      sideMenu.classList.add('open');
+      overlay.classList.add('show');
+    };
+
+    function closeMenu() {
+      sideMenu.classList.remove('open');
+      overlay.classList.remove('show');
+    }
+
+    closeBtn.onclick = closeMenu;
+    overlay.onclick = closeMenu;
+
+    const sections = document.querySelectorAll('.content-section');
+    const mainImg = document.getElementById('main-visual');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const newImg = entry.target.getAttribute('data-img');
+          mainImg.style.opacity = '0';
+          setTimeout(() => {
+            mainImg.src = newImg;
+            mainImg.style.opacity = '1';
+          }, 300);
+        }
+      });
+    }, { threshold: 0.6 });
+
+    sections.forEach(section => observer.observe(section));
+document.addEventListener('DOMContentLoaded', () => {
+    document.body.classList.add('page-loaded');
+
+    document.addEventListener('click', (e) => {
+        const link = e.target.closest('a');
+
+        if (!link || !link.href || link.target === '_blank' || 
+            link.href.includes('#') || !link.href.startsWith(window.location.origin)) {
+            return;
+        }
+
+        e.preventDefault();
+        const targetUrl = link.href;
+        document.body.classList.remove('page-loaded');
+        document.body.classList.add('page-exiting');
+        setTimeout(() => {
+            window.location.href = targetUrl;
+        }, 800);
+    });
+ });
+
+  </script>
+
+  <script src="script.js"></script>
+
+<footer class="footer">
+        <p>"Once you've met someone, you never really forget them."</p>
+        <p style="font-size: 10px; margin-top: 10px; opacity: 0.5;">© Spirited Away. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

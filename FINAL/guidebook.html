@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guidebook</title>
+    <link rel="icon" type="image/png" href="img/tabicon.ico">
+    <link rel="stylesheet" href="guidebook.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,400&family=Lustria&display=swap" rel="stylesheet">
+</head>
+<body>
+<div id="transitionOverlay" class="smooth-fade"></div>
+    <header class="main-header">
+        <div class="logo">
+            <a href="index.html">
+                <img src="img/logo-removebg-preview.png" alt="Spirited Away" class="main-logo">
+            </a>
+        </div>
+        <button class="menu-btn" id="menuBtn">☰</button>
+    </header>
+
+    <div class="side-menu" id="sideMenu">
+        <div class="close-btn" id="closeBtn">&times;</div>
+        <nav class="menu-links">
+            <a href="index.html">HOME</a>
+            <a href="about.html">ABOUT</a>
+            <a href="gallery.html">GALLERY</a>
+            <a href="character.html">CHARACTER</a>
+            <a href="folklore.html">FOLKLORE ORIGIN</a>
+            
+        </nav>
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+
+    <section class="guide-hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-text">
+            <span class="category">ANCIENT MANUSCRIPT</span>
+            <h1>The Spirit Roots</h1>
+            <p>The Ancient Laws of the Unseen.</p>
+        </div>
+    </section>
+
+    <main class="guide-content">
+        <div class="container">
+            <div class="guide-item">
+                <div class="guide-info">
+                    <span class="chapter">CHAPTER I</span>
+                    <h2>Remember your Name</h2>
+                    <p>Names hold power. Losing your name means losing your identity and freedom.</p>
+                </div>
+                <div class="guide-visual">
+                    <div class="glow-box">✦</div>
+                </div>
+            </div>
+
+            <div class="guide-item reverse">
+                <div class="guide-info">
+                    <span class="chapter">CHAPTER II</span>
+                    <h2>Obtain Work</h2>
+                    <p>Those who do not work have no right to exist. You must find Yubaba, the bathhouse owner, and demand a job; once a contract is signed, she is bound by law to employ you.</p>
+                </div>
+                <div class="guide-visual">
+                    <div class="glow-box">◈</div>
+                </div>
+            </div>
+        </div>
+
+
+
+<div class="container">
+            <div class="guide-item">
+                <div class="guide-info">
+                    <span class="chapter">CHAPTER III</span>
+                    <h2>Breath Rule</h2>
+                    <p>Humans must hold their breath while crossing the bridge into the bathhouse. A human’s breath has a "worldly smell" that allows spirits and bouncers to immediately identify them as trespassers.</p>
+                </div>
+                <div class="guide-visual">
+                    <div class="glow-box">✦</div>
+                </div>
+            </div>
+
+            <div class="guide-item reverse">
+                <div class="guide-info">
+                    <span class="chapter">CHAPTER IV</span>
+                    <h2>Bathhouse Hierarchy</h2>
+                    <p> The bathhouse serves as a place for spirits to wash away the "impurities" and pollution they pick up in the human world.</p>
+                </div>
+                <div class="guide-visual">
+                    <div class="glow-box">◈</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="guide-item">
+                <div class="guide-info">
+                    <span class="chapter">CHAPTER V</span>
+                    <h2>Reclaim Your True Name</h2>
+                    <p>You cannot leave if the spirit world owns your name. Remembering who you are is the only way to break your contract. </p>
+                </div>
+                <div class="guide-visual">
+                    <div class="glow-box">✦</div>
+                </div>
+            </div>
+
+            <div class="guide-item reverse">
+                <div class="guide-info">
+                    <span class="chapter">CHAPTER VI</span>
+                    <h2>Final Trial</h2>
+                    <p>You must prove your growth by passing a test of perception—usually seeing through a master's illusion.</p>
+                </div>
+                <div class="guide-visual">
+                    <div class="glow-box">◈</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="guide-item">
+                <div class="guide-info">
+                    <span class="chapter">CHAPTER VII</span>
+                    <h2>Break the Contract</h2>
+                    <p>Once your name is returned and the trial is passed, your binding ties to the spirit realm are severed.</p>
+                </div>
+                <div class="guide-visual">
+                    <div class="glow-box">✦</div>
+                </div>
+            </div>
+
+            <div class="guide-item reverse">
+                <div class="guide-info">
+                    <span class="chapter">CHAPTER VIII</span>
+                    <h2>Do Not Look Back</h2>
+                    <p>As you cross the tunnel or bridge back to reality, you must never look back. To look back is to risk being trapped forever or losing your memories of the journey.</p>
+                </div>
+                <div class="guide-visual">
+                    <div class="glow-box">◈</div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <p>"Once you've met someone, you never really forget them."</p>
+        <p style="font-size: 10px; margin-top: 10px; opacity: 0.5;">© Spirited Away. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        const menuBtn = document.getElementById('menuBtn');
+        const sideMenu = document.getElementById('sideMenu');
+        const closeBtn = document.getElementById('closeBtn');
+        const overlay = document.getElementById('overlay');
+
+        menuBtn.onclick = () => {
+            sideMenu.classList.add('open');
+            overlay.classList.add('show');
+        };
+
+        function closeMenu() {
+            sideMenu.classList.remove('open');
+            overlay.classList.remove('show');
+        }
+
+        closeBtn.onclick = closeMenu;
+        overlay.onclick = closeMenu;
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.body.classList.add('page-loaded');
+
+    document.addEventListener('click', (e) => {
+        const link = e.target.closest('a');
+
+        if (!link || !link.href || link.target === '_blank' || 
+            link.href.includes('#') || !link.href.startsWith(window.location.origin)) {
+            return;
+        }
+
+        e.preventDefault();
+        const targetUrl = link.href;
+
+        document.body.classList.remove('page-loaded');
+        document.body.classList.add('page-exiting');
+        setTimeout(() => {
+            window.location.href = targetUrl;
+        }, 800);
+    });
+ });
+
+    </script>
+    
+<script src="script.js"></script>
+
+</body>
+</html>

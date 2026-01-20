@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Folklore Origin</title>
+    <link rel="icon" type="image/png" href="img/tabicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;600&family=Lustria&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="folklore.css">
+</head>
+<body>
+    <div id="transitionOverlay" class="smooth-fade"></div>
+    <header class="header">
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="img/logo-removebg-preview.png" alt="Logo" class="main-logo">
+            </a>
+        </div>
+        <div class="header-right">
+            <button class="menu-btn" id="menuBtn">☰</button>
+        </div>
+    </header>
+
+    <div class="side-menu" id="sideMenu">
+        <div class="close-btn" id="closeBtn">×</div>
+        <nav class="menu-links">
+            <a href="index.html">HOME</a>
+            <a href="about.html">ABOUT</a>
+            <a href="gallery.html">GALLERY</a>
+            <a href="character.html">CHARACTER</a>
+            <a href="guidebook.html">SPIRIT WORLD GUIDEBOOK</a>
+        </nav>
+    </div>
+    <div class="overlay" id="overlay"></div>
+
+    <div class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="sub-title">MYTHOLOGY & TRADITION</span>
+            <h1>The Sacred Realm</h1>
+            <p>Explore the ancient Japanese beliefs that breathe life into the spirits.</p>
+        </div>
+    </div>
+
+    <main class="content-wrapper">
+        <section class="folklore-section">
+            <div class="text-side">
+                <span class="chapter-num">CHAPTER I</span>
+                <h2>The Heart of Shintoism</h2>
+                <p>At the core of Spirited Away lies <strong>Shinto</strong>, Japan's indigenous religion. It asserts that spiritual powers, or <em>Kami</em>, inhabit all aspects of nature.</p>
+            </div>
+            <div class="image-side">
+                <div class="image-frame">
+                    <img src="img/shintoo.jpg" alt="Shinto Shrine">
+                </div>
+            </div>
+        </section>
+
+        <section class="folklore-section reverse">
+            <div class="text-side">
+                <span class="chapter-num">CHAPTER II</span>
+                <h2>Yaoyorozu no Kami</h2>
+                <p>The phrase <em>"Yaoyorozu no Kami"</em>, literally meaning "Eight Million Gods," signifies the infinite number of deities in the world.</p>
+            </div>
+            <div class="image-side">
+                <div class="image-frame">
+                    <img src="img/spirit.jpg" alt="Spirits Gathering">
+                </div>
+            </div>
+        </section>
+
+        <section class="folklore-section">
+            <div class="text-side">
+                <span class="chapter-num">CHAPTER III</span>
+                <h2>The Kamikakushi</h2>
+                <p>people mysteriously taken away by spirits or gods. <strong> Chihiro’s sudden disappearance</strong> into the spirit world reflects this belief, where humans cross into a hidden realm beyond ordinary life.</p>
+            </div>
+            <div class="image-side">
+                <div class="image-frame">
+                    <img src="img/tunnel.jpg" alt="Shinto Shrine">
+                </div>
+            </div>
+        </section>   
+    </main>
+
+    <footer class="footer">
+        <p>"Once you've met someone, you never really forget them."</p>
+        <p style="font-size: 10px; margin-top: 10px; opacity: 0.5;">© Spirited Away. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        const menuBtn = document.getElementById("menuBtn");
+        const sideMenu = document.getElementById("sideMenu");
+        const closeBtn = document.getElementById("closeBtn");
+        const overlay = document.getElementById("overlay");
+
+        menuBtn.onclick = () => {
+            sideMenu.classList.add("open");
+            overlay.classList.add("show");
+        };
+
+        function closeMenu() {
+            sideMenu.classList.remove("open");
+            overlay.classList.remove("show");
+        }
+        closeBtn.onclick = closeMenu;
+        overlay.onclick = closeMenu;
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                document.body.classList.add('page-loaded');
+            }, 100);
+
+            document.addEventListener('click', (e) => {
+                const link = e.target.closest('a');
+                if (!link || !link.href || link.target === '_blank' || 
+                    link.href.includes('#') || !link.href.startsWith(window.location.origin)) {
+                    return;
+                }
+                e.preventDefault();
+                document.body.classList.remove('page-loaded');
+                document.body.classList.add('page-exiting');
+                setTimeout(() => {
+                    window.location.href = link.href;
+                }, 800);
+            });
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.folklore-section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
